@@ -6,9 +6,9 @@ const router = createRouter({
     {
       path: '/',
       redirect: '/index',
-      component: () => import('../views/home/HomeContainer.vue'),
+      component: () => import('../views/home/MainPage.vue'),
       children: [
-        {path: '/',component: () => import('../views/home/HomeContainer.vue')}
+        {path: '/',component: () => import('../views/home/MainPage.vue')}
       ]
     }
   ]

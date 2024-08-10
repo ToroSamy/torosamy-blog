@@ -15,8 +15,8 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     const userStore = useUserStore()
-    if (userStore.user.token && !isTokenExpired(userStore.user.token)) {
-      config.headers.Authorization = userStore.user.token
+    if (userStore.user!.token && !isTokenExpired(userStore.user!.token)) {
+      config.headers.Authorization = userStore.user!.token
     }
     return config
   },
@@ -32,9 +32,9 @@ instance.interceptors.response.use(
   (err) => {
     ElMessage({ message: err.response.data.msg || '服务异常', type: 'error' })
     console.log(err)
-    if (err.response?.status === 401) {
-      router.push('/login')
-    }
+    // if (err.response?.status === 401) {
+    //   router.push('/login')
+    // }
     return Promise.reject(err)
   }
 )

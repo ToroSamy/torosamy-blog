@@ -1,9 +1,12 @@
 <script setup></script>
 
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <router-view />
 </template>
 
-<style scoped></style>
+<style>
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+</style>
