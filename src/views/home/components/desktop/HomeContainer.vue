@@ -8,7 +8,6 @@ import DesktopView3 from './DesktopView3.vue';
   <el-carousel style="height: 52.25rem;" direction="vertical" :autoplay="false">
     <DesktopView1></DesktopView1>
     <DesktopView2></DesktopView2>
-    <DesktopView3></DesktopView3>
   </el-carousel>
 </template>
 

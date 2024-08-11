@@ -1,15 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Promotion } from '@element-plus/icons-vue'
 import { sendMessageService } from '@/api/message'
 import axios from 'axios'
 /* border: 1px solid #c21818; */
+
 const audioSrc = '@/../music.mp3';
 const audio = ref(null);
 const isButtonDisabled = ref(false)
 const buttonText = ref('点击发射')
 const input = ref('')
 const isRotating = ref(false);
+const dayIndex = new Date().getDay()
+const dayOfWeek = computed(() => {
+  const days = ['日', '一', '二', '三', '四', '五', '六'];
+  return days[dayIndex];
+});
 const startCountdown = () => {
   isButtonDisabled.value = true
   let countdown = 30
@@ -43,6 +49,12 @@ const playMusicCommand = () => {
     ElMessage.success('暂停成功')
   }
 }
+const vivo50Command = () => {
+  if (dayIndex === 4) ElMessage.success('vivo50')
+  else {
+    ElMessage.success('今天是星期' + dayOfWeek.value + ' 但也可以vivo50')
+  }
+}
 const gitCommand = () => {
   window.open('https://github.com/ToroSamy', '_blank');
 }
@@ -62,6 +74,9 @@ const telegramCommand = () => {
   ElMessage.success('尽情期待')
 }
 const moreCommand = () => {
+  ElMessage.success('尽情期待')
+}
+const tempCommand = () => {
   ElMessage.success('尽情期待')
 }
 </script>
@@ -96,7 +111,7 @@ const moreCommand = () => {
         </div>
 
         <div class="post-message-box">
-          <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" />
+          <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" maxlength="50" show-word-limit />
           <el-button type="primary" :disabled="isButtonDisabled" :icon="Promotion" @click="sendMessageCommand">
             {{ buttonText }}
           </el-button>
@@ -108,9 +123,10 @@ const moreCommand = () => {
       <div class="icon-group">
         <img src="../../assets/button/music.png" :class="{ 'little-icon': true, 'rotate': isRotating }"
           @click="playMusicCommand">
-        <img src="../../assets/button/kfc.png" class="little-icon">
-        <img src="../../assets/button/day.png" class="little-icon">
-        <img src="../../assets/button/message.png" class="little-icon">
+        <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
+        <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command">
+        <img src="../../assets/button/kfc.png" class="little-icon" @click="tempCommand">
+        <img src="../../assets/button/message.png" class="little-icon" @click="tempCommand">
       </div>
 
     </div>

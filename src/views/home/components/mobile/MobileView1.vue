@@ -71,6 +71,7 @@ const sendMessageCommand = () => {
         <li class="list-item">Vue</li>
         <li class="list-item">Bukkit </li>
         <li class="list-item">Linux </li>
+        <li class="list-item">Mirai </li>
         <li class="list-item">And More ! </li>
       </ul>
 
@@ -124,12 +125,13 @@ const sendMessageCommand = () => {
   border-radius: 10px;
   border: 1px solid #5a5656;
   /* 边距 */
-  padding: 1vh 1vw;
+  padding: 0 1.5vw;
   margin-left: -3vw;
 }
 
 
 .list-item {
+  margin-top: 0.8vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,6 +143,7 @@ const sendMessageCommand = () => {
 
 
 .info-box {
+  font-family: 'Comic Sans MS';
   color: white;
   background-color: rgba(90, 86, 86, 0.4);
   border-radius: 10px;
@@ -167,7 +170,6 @@ const sendMessageCommand = () => {
 }
 
 .word-box {
-  font-family: 'Comic Sans MS';
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,7 +209,8 @@ const sendMessageCommand = () => {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 4vh 8vw;
+  justify-content: space-around;
+  padding: 0 8vw;
 }
 
 .rotate {

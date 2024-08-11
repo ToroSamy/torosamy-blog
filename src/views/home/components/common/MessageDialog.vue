@@ -23,7 +23,8 @@ defineExpose({
 
 <template>
   <el-dialog v-model="dialogVisible" title="匿名留言" class="dialog">
-    <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" type="textarea" :rows="6" />
+    <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" type="textarea" :rows="6" maxlength="50"
+      show-word-limit />
     <template #footer>
       <el-button @click="dialogVisible = false" type="danger">取消</el-button>
       <el-button @click="onSubmit" type="primary">确认</el-button>
