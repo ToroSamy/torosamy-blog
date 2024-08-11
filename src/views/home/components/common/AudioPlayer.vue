@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const audioSrc = '../../../../../public/music.mp3'; // 替换为你的音频文件路径
+const audioSrc = '@/../music.mp3'; // 替换为你的音频文件路径
 const audio = ref(null);
 
 const playAudio = () => {

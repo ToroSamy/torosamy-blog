@@ -4,9 +4,12 @@ import { Promotion } from '@element-plus/icons-vue'
 import { sendMessageService } from '@/api/message'
 import axios from 'axios'
 /* border: 1px solid #c21818; */
+const audioSrc = '@/../music.mp3';
+const audio = ref(null);
 const isButtonDisabled = ref(false)
 const buttonText = ref('点击发射')
 const input = ref('')
+const isRotating = ref(false);
 const startCountdown = () => {
   isButtonDisabled.value = true
   let countdown = 30
@@ -24,16 +27,48 @@ const startCountdown = () => {
   }
   setTimeout(countdownTimer, 1000)
 }
-const sendMessage = async () => {
+const sendMessageCommand = async () => {
   const response = await axios.get('https://api.ipify.org?format=json')
   await sendMessageService(input.value, response.data.ip)
   ElMessage.success('发送成功')
   startCountdown()
 }
+const playMusicCommand = () => {
+  isRotating.value = !isRotating.value;
+  if (isRotating.value) {
+    audio.value.play();
+    ElMessage.success('开始播放')
+  } else {
+    audio.value.pause();
+    ElMessage.success('暂停成功')
+  }
+}
+const gitCommand = () => {
+  window.open('https://github.com/ToroSamy', '_blank');
+}
+const serverWebCommand = () => {
+  window.open('https://server.torosamy.net:11699', '_blank');
+}
+const discordCommand = () => {
+  ElMessage.success('尽情期待')
+}
+const oicqCommand = () => {
+  ElMessage.success('尽情期待')
+}
+const weChatCommand = () => {
+  ElMessage.success('尽情期待')
+}
+const telegramCommand = () => {
+  ElMessage.success('尽情期待')
+}
+const moreCommand = () => {
+  ElMessage.success('尽情期待')
+}
 </script>
 
 <template>
   <el-carousel-item>
+    <audio ref="audio" :src="audioSrc" loop></audio>
     <div class="background"></div>
 
     <div class="content">
@@ -51,18 +86,18 @@ const sendMessage = async () => {
         </div>
 
         <div class="footer-box">
-          <img class="little-icon" src="../../assets/little-icon/git.png">
-          <img class="little-icon" src="../../assets/little-icon/server-web.png">
-          <img class="little-icon" src="../../assets/little-icon/discord.png">
-          <img class="little-icon" src="../../assets/little-icon/qq.png">
-          <img class="little-icon" src="../../assets/little-icon/we-chat.png">
-          <img class="little-icon" src="../../assets/little-icon/telegram.png">
-          <img class="little-icon" src="../../assets/little-icon/more.png">
+          <img class="little-icon" src="../../assets/little-icon/git.png" @click="gitCommand">
+          <img class="little-icon" src="../../assets/little-icon/server-web.png" @click="serverWebCommand">
+          <img class="little-icon" src="../../assets/little-icon/discord.png" @click="discordCommand">
+          <img class="little-icon" src="../../assets/little-icon/oicq.png" @click="oicqCommand">
+          <img class="little-icon" src="../../assets/little-icon/we-chat.png" @click="weChatCommand">
+          <img class="little-icon" src="../../assets/little-icon/telegram.png" @click="telegramCommand">
+          <img class="little-icon" src="../../assets/little-icon/more.png" @click="moreCommand">
         </div>
 
         <div class="post-message-box">
           <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" />
-          <el-button type="primary" :disabled="isButtonDisabled" :icon="Promotion" plain @click="sendMessage">
+          <el-button type="primary" :disabled="isButtonDisabled" :icon="Promotion" @click="sendMessageCommand">
             {{ buttonText }}
           </el-button>
         </div>
@@ -71,10 +106,11 @@ const sendMessage = async () => {
 
 
       <div class="icon-group">
-        <span class="little-img">按钮A</span>
-        <span class="little-img">按钮B</span>
-        <span class="little-img">尚未</span>
-        <span class="little-img">设计</span>
+        <img src="../../assets/button/music.png" :class="{ 'little-icon': true, 'rotate': isRotating }"
+          @click="playMusicCommand">
+        <img src="../../assets/button/music.png" class="little-icon">
+        <img src="../../assets/button/music.png" class="little-icon">
+        <img src="../../assets/button/music.png" class="little-icon">
       </div>
 
     </div>
@@ -133,7 +169,7 @@ const sendMessage = async () => {
   width: 100px;
   height: 100px;
   margin-right: 1rem;
-  animation: profile 5s linear infinite;
+  animation: profile 10s linear infinite;
 }
 
 @keyframes profile {
@@ -173,14 +209,10 @@ const sendMessage = async () => {
   margin-top: 0.5rem;
 }
 
-.little-icon {
-  /* opacity: 0.7; */
-  margin: 0 0.3rem
-}
+
 
 .post-message-box {
   margin-top: 1.5rem;
-  margin-right: 5rem;
   display: flex;
   flex-direction: row;
 
@@ -200,15 +232,25 @@ const sendMessage = async () => {
   border-radius: 10px;
   border: 1px solid #d3d3d3;
   margin-right: 2rem;
-  padding: 1rem 1rem;
+  padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
 
-.little-img {
-  color: white;
+.little-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0.3rem;
+  transition: filter 0.3s ease;
+}
+
+.little-icon:hover {
+  filter: brightness(0.7);
+}
+
+.rotate {
+  animation: profile 5s linear infinite;
 }
 </style>
