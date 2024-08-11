@@ -22,7 +22,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog v-model="dialogVisible" title="匿名留言" style="width: 80%; height: 50%;">
+  <el-dialog v-model="dialogVisible" title="匿名留言" class="dialog">
     <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" type="textarea" :rows="6" />
     <template #footer>
       <el-button @click="dialogVisible = false" type="danger">取消</el-button>
@@ -32,7 +32,12 @@ defineExpose({
 </template>
 
 <style scoped>
+.dialog {
+  width: 50vw;
+  height: 50vh;
+}
+
 .message {
-  font-size: 3rem;
+  font-size: 1.8vh;
 }
 </style>

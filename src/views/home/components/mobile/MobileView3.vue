@@ -3,25 +3,18 @@
 
 <template>
   <el-carousel-item>
-    <div class="background"></div>
-
-
-    <div>123</div>
   </el-carousel-item>
 </template>
 
 <style scoped>
-.background {
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  filter: brightness(50%) contrast(100%) saturate(150%);
-}
-
 .el-carousel__item {
-  background-image: url(../../assets/temp-icon.jpg);
-  background-size: cover;
-  width: 100%;
+  margin: 0;
+  background-color: #65bbca;
+  background-image: url(../../assets/no-design.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 100vw;
   height: 100vh;
 }
 </style>

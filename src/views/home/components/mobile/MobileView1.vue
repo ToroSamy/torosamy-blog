@@ -37,10 +37,7 @@ const sendMessageCommand = () => {
   <audio ref="audio" :src="audioSrc" loop></audio>
   <MessageDialog ref="diglog"></MessageDialog>
   <el-carousel-item>
-    <div class="background"></div>
-
     <div class="container">
-
       <div class="info-box">
         <div class="header-box">
           <img class="profile-picture" src="../../assets/profile.png">
@@ -54,18 +51,27 @@ const sendMessageCommand = () => {
       </div>
 
 
-      <ul class="code-language shared-box" style="overflow: auto">
-        <li class="message-box-item">Java Kotlin Go</li>
-        <li class="message-box-item">Python C/Cpp rust</li>
-        <li class="message-box-item">html+css+js ts</li>
-        <li class="message-box-item">And More ! </li>
+      <ul class="global-list" style="overflow: auto">
+        <li class="list-item">Java</li>
+        <li class="list-item">Kotlin</li>
+        <li class="list-item">Go</li>
+        <li class="list-item">Python</li>
+        <li class="list-item">C/Cpp</li>
+        <li class="list-item">rust</li>
+        <li class="list-item">html css</li>
+        <li class="list-item">js ts</li>
+        <li class="list-item">sql</li>
+        <li class="list-item">And More ! </li>
       </ul>
 
-      <ul class="technology-stack shared-box" style="overflow: auto">
-        <li class="message-box-item">vue bukkit </li>
-        <li class="message-box-item">SpringBoot Ros2</li>
-        <li class="message-box-item">Bukkit openCV</li>
-        <li class="message-box-item">And More ! </li>
+      <ul class="global-list" style="overflow: auto">
+        <li class="list-item">SpringBoot</li>
+        <li class="list-item">Ros2</li>
+        <li class="list-item">openCV</li>
+        <li class="list-item">Vue</li>
+        <li class="list-item">Bukkit </li>
+        <li class="list-item">Linux </li>
+        <li class="list-item">And More ! </li>
       </ul>
 
       <div class="button-box">
@@ -77,101 +83,30 @@ const sendMessageCommand = () => {
       </div>
 
     </div>
-
   </el-carousel-item>
 </template>
 
 <style scoped>
-.background {
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  filter: brightness(75%) contrast(100%) saturate(150%);
-}
-
-.el-carousel__item {
-  background-image: url(../../assets/background-mobile.jpg);
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.info-box {
-  margin-top: 3rem;
-  margin-left: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 15rem;
-  background-color: rgba(90, 86, 86, 0.4);
-  border-radius: 10px;
-  border: 1px solid #5a5656;
-  padding: 0rem 1rem;
-}
-
-.shared-box {
-  margin-left: 2rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30%;
-  height: 25rem;
-  background-color: rgba(90, 86, 86, 0.4);
-  border-radius: 10px;
-  border: 1px solid #5a5656;
-  padding: 0rem 1rem;
-}
-
-.code-language {
-  margin-top: 20rem;
-}
-
-.technology-stack {
-  margin-top: 47rem;
-}
-
-.message-box-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 6rem;
-  background-color: rgba(165, 165, 165, 0.5);
-  margin: 1rem 0rem;
-  color: white;
-  font-size: 2rem;
-}
-
 .button-box {
-  margin-top: 75rem;
-  margin-left: 3rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 35%;
-  height: 6rem;
+  /* 边框 */
   background-color: rgba(90, 86, 86, 0.4);
   border-radius: 10px;
   border: 1px solid #5a5656;
+  /* 大小 */
+  width: 33vw;
+  height: 5vh;
+  /* 布局 */
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* 边距 */
+  padding: 1vh 5vw;
 }
 
 .little-icon {
-  margin: 0 0.3rem;
-  width: 6rem;
-  height: 6rem;
+  margin: 0 1vw;
+  width: 10vw;
+  height: auto;
   transition: filter 0.3s ease;
 }
 
@@ -179,21 +114,59 @@ const sendMessageCommand = () => {
   filter: brightness(0.7);
 }
 
+
+.global-list {
+  /* 大小 */
+  width: 33vw;
+  height: 29vh;
+  /* 边框 */
+  background-color: rgba(90, 86, 86, 0.4);
+  border-radius: 10px;
+  border: 1px solid #5a5656;
+  /* 边距 */
+  padding: 1vh 1vw;
+  margin-left: -3vw;
+}
+
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  background-color: rgba(165, 165, 165, 0.5);
+  color: white;
+  font-size: 5vw;
+}
+
+
+.info-box {
+  color: white;
+  background-color: rgba(90, 86, 86, 0.4);
+  border-radius: 10px;
+  border: 1px solid #5a5656;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50vw;
+  height: 12vh;
+  padding: 1vh 3vw;
+}
+
 .header-box {
   display: flex;
-  width: 100%;
-  padding: 0.5rem 1em;
   flex-direction: row;
+  width: 100%;
+  padding: 1vh 0;
 }
 
 .header-box .profile-picture {
-  width: 100px;
-  height: 100px;
-  margin-right: 1rem;
+  margin-right: 2vw;
+  width: auto;
+  height: 5vh;
 }
 
 .word-box {
-  color: white;
   font-family: 'Comic Sans MS';
   display: flex;
   flex-direction: column;
@@ -201,23 +174,40 @@ const sendMessageCommand = () => {
 }
 
 .word-box .top-word {
-  font-size: 1.5rem;
+  font-size: 3vw
 }
 
 .word-box .bottom-word {
-  font-size: 2rem;
+  font-size: 3.5vw;
 }
 
 .text-1 {
-  margin-top: 0.5rem;
-  color: white;
-  font-size: 1.2rem;
+  font-size: 2vw;
 }
 
 .text-2 {
-  margin-top: 0.6rem;
-  color: white;
-  font-size: 0.8rem;
+  margin-top: 1vh;
+  font-size: 1.35vw;
+}
+
+
+.el-carousel__item {
+  margin: 0;
+  background-color: #65bbca;
+  background-image: url(../../assets/background-mobile.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 4vh 8vw;
 }
 
 .rotate {

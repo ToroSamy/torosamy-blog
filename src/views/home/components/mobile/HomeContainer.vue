@@ -1,7 +1,6 @@
 <script setup>
 import MobileView1 from './MobileView1.vue';
 import MobileView2 from './MobileView2.vue';
-import MobileView3 from './MobileView3.vue';
 </script>
 
 <template>

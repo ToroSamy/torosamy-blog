@@ -3,24 +3,18 @@
 
 <template>
   <el-carousel-item>
-    <div class="background"></div>
-
-
-    <div>123</div>
   </el-carousel-item>
 </template>
 
 <style scoped>
-.background {
-  width: 100%;
-  height: 100%;
-  background: inherit;
-}
-
 .el-carousel__item {
+  margin: 0;
+  background-color: #65bbca;
   background-image: url(../../assets/no-design.png);
-  background-size: cover;
-  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 100vw;
   height: 100vh;
 }
 </style>
