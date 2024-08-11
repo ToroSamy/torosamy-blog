@@ -1,10 +1,5 @@
-// src/axios.js
-
-import { useUserStore } from '@/stores/modules/user'
 import axios from 'axios'
-import router from '@/router'
 import { ElMessage } from 'element-plus'
-import { isTokenExpired } from '@/utils/auth' // 导入函数
 
 const baseURL = '/api'
 const instance = axios.create({
@@ -13,14 +8,14 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(
-  (config) => {
-    const userStore = useUserStore()
-    if (userStore.user!.token && !isTokenExpired(userStore.user!.token)) {
-      config.headers.Authorization = userStore.user!.token
-    }
-    return config
-  },
-  (err) => Promise.reject(err)
+  // (config) => {
+  //   const userStore = useUserStore()
+  //   if (userStore.user!.token && !isTokenExpired(userStore.user!.token)) {
+  //     config.headers.Authorization = userStore.user!.token
+  //   }
+  //   return config
+  // },
+  // (err) => Promise.reject(err)
 )
 
 instance.interceptors.response.use(

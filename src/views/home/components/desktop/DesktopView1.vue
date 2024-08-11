@@ -1,11 +1,35 @@
 <script setup>
 import { ref } from 'vue'
 import { Promotion } from '@element-plus/icons-vue'
+import { sendMessageService } from '@/api/message'
+import axios from 'axios'
 /* border: 1px solid #c21818; */
-
+const isButtonDisabled = ref(false)
+const buttonText = ref('点击发射')
 const input = ref('')
+const startCountdown = () => {
+  isButtonDisabled.value = true
+  let countdown = 30
+  buttonText.value = `${countdown}s后重试`
 
-
+  const countdownTimer = () => {
+    countdown--
+    buttonText.value = `${countdown}s后重试`
+    if (countdown > 0) {
+      setTimeout(countdownTimer, 1000)
+    } else {
+      isButtonDisabled.value = false
+      buttonText.value = '点击发射'
+    }
+  }
+  setTimeout(countdownTimer, 1000)
+}
+const sendMessage = async () => {
+  const response = await axios.get('https://api.ipify.org?format=json')
+  await sendMessageService(input.value, response.data.ip)
+  ElMessage.success('发送成功')
+  startCountdown()
+}
 </script>
 
 <template>
@@ -38,7 +62,9 @@ const input = ref('')
 
         <div class="post-message-box">
           <el-input v-model="input" placeholder="有什么想和龙猫说的吗~" class="message" />
-          <el-button type="primary" :icon="Promotion" plain>发射</el-button>
+          <el-button type="primary" :disabled="isButtonDisabled" :icon="Promotion" plain @click="sendMessage">
+            {{ buttonText }}
+          </el-button>
         </div>
 
       </div>
