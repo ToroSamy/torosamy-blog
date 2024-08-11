@@ -108,9 +108,9 @@ const moreCommand = () => {
       <div class="icon-group">
         <img src="../../assets/button/music.png" :class="{ 'little-icon': true, 'rotate': isRotating }"
           @click="playMusicCommand">
-        <img src="../../assets/button/music.png" class="little-icon">
-        <img src="../../assets/button/music.png" class="little-icon">
-        <img src="../../assets/button/music.png" class="little-icon">
+        <img src="../../assets/button/kfc.png" class="little-icon">
+        <img src="../../assets/button/day.png" class="little-icon">
+        <img src="../../assets/button/message.png" class="little-icon">
       </div>
 
     </div>

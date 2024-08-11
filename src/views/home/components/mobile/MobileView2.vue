@@ -15,11 +15,10 @@
   width: 100%;
   height: 100%;
   background: inherit;
-  filter: brightness(50%) contrast(100%) saturate(150%);
 }
 
 .el-carousel__item {
-  background-image: url(../../assets/not-found.jpg);
+  background-image: url(../../assets/no-design.png);
   background-size: cover;
   width: 100%;
   height: 100vh;

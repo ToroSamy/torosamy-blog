@@ -8,7 +8,7 @@ import MobileView3 from './MobileView3.vue';
   <el-carousel direction="vertical" :autoplay="false">
     <MobileView1></MobileView1>
     <MobileView2></MobileView2>
-    <MobileView3></MobileView3>
+    <!-- <MobileView3></MobileView3> -->
   </el-carousel>
 </template>
 
