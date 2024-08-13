@@ -10,7 +10,7 @@
 .el-carousel__item {
   margin: 0;
   background-color: #65bbca;
-  background-image: url(../../assets/no-design.png);
+  background-image: url(../../assets/no-design.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;

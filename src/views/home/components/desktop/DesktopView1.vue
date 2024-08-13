@@ -140,25 +140,25 @@ const tempCommand = () => {
     </div>
   </el-carousel-item>
 
-  <custom-dialog ref="oicqRef" title="服务器娘提示您: ">
+  <custom-dialog ref="oicqRef" style="width: 18vw;">
     <img-content @click="closeOicqDialog">
       <template #title>
         <div>腾讯已于2020年关闭QQ临时会话功能</div>
         <div>您可以扫码联系龙猫哦</div>
       </template>
       <template #img>
-        <img src="@/assets/my-qq.jpg">
+        <img src="@/assets/my-qq.jpg" style="width: 15vw; height: auto;">
       </template>
     </img-content>
   </custom-dialog>
-  <custom-dialog ref="weChatRef" title="服务器娘提示您: ">
+  <custom-dialog ref="weChatRef" style="width: 18vw; background-color: #6ba5cb;">
     <img-content @click="closeWeChatDialog">
       <template #title>
         <div>腾讯已于2020年关闭临时会话功能</div>
         <div>您可以扫码联系龙猫哦</div>
       </template>
       <template #img>
-        <img src="@/assets/my-we-chat.jpg">
+        <img src="@/assets/my-we-chat.jpg" style="width: 17vw; height: auto; margin-top: 1vh;">
       </template>
     </img-content>
   </custom-dialog>

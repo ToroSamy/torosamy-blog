@@ -42,8 +42,7 @@ const sendMessageCommand = () => {
 </script>
 
 <template>
-  <audio ref="audio" :src="audioSrc" loop></audio>
-  <MessageDialog ref="diglog"></MessageDialog>
+
   <el-carousel-item>
     <div class="container">
       <div class="info-box">
@@ -93,15 +92,16 @@ const sendMessageCommand = () => {
 
     </div>
   </el-carousel-item>
-
-  <custom-dialog ref="oicqRef" title="提示: " style="width: 50vw; height: 40vh;">
+  <audio ref="audio" :src="audioSrc" loop></audio>
+  <MessageDialog ref="diglog"></MessageDialog>
+  <custom-dialog ref="oicqRef" style="width: 65vw; height: auto;">
     <img-content @click="closeOicqDialog">
       <template #title>
-        <div style="font-size: 2vw;">腾讯已于2020年关闭QQ临时会话功能</div>
-        <div style="font-size: 2vw;">您可以扫码联系龙猫哦</div>
+        <div style="font-size: 3vw;">腾讯已于2020年关闭QQ临时会话功能</div>
+        <div style="font-size: 3vw;">您可以扫码联系龙猫哦</div>
       </template>
       <template #img>
-        <img style="width: 20vw;height: 20vh;" src="@/assets/my-qq.jpg">
+        <img style="width: 50vw;height: auto;" src="@/assets/my-qq.jpg">
       </template>
     </img-content>
   </custom-dialog>

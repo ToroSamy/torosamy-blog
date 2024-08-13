@@ -15,7 +15,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-dialog v-model="dialogVisible" :title="props.title" width="30vw">
+  <el-dialog v-model="dialogVisible" :title="props.title">
     <slot></slot>
   </el-dialog>
 </template>
