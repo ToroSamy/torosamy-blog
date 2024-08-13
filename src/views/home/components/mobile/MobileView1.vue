@@ -10,6 +10,14 @@ const dayOfWeek = computed(() => {
 const audioSrc = '@/../music-mobile.mp3';
 const audio = ref(null);
 const isRotating = ref(false);
+
+const oicqRef = ref()
+const oicqCommand = () => {
+  oicqRef.value.open()
+}
+const closeOicqDialog = () => {
+  oicqRef.value.close()
+}
 const playMusicCommand = () => {
   isRotating.value = !isRotating.value;
   if (isRotating.value) {
@@ -79,12 +87,24 @@ const sendMessageCommand = () => {
         <img :class="{ 'little-icon': true, 'rotate': isRotating }" src="../../assets/button/music.png"
           @click="playMusicCommand">
         <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
-        <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command">
+        <img class="little-icon" src="../../assets/button/day.png" v-else @click="oicqCommand">
         <img class="little-icon" src="../../assets/button/message.png" @click="sendMessageCommand">
       </div>
 
     </div>
   </el-carousel-item>
+
+  <custom-dialog ref="oicqRef" title="提示: " style="width: 50vw; height: 40vh;">
+    <img-content @click="closeOicqDialog">
+      <template #title>
+        <div style="font-size: 2vw;">腾讯已于2020年关闭QQ临时会话功能</div>
+        <div style="font-size: 2vw;">您可以扫码联系龙猫哦</div>
+      </template>
+      <template #img>
+        <img style="width: 20vw;height: 20vh;" src="@/assets/my-qq.jpg">
+      </template>
+    </img-content>
+  </custom-dialog>
 </template>
 
 <style scoped>
@@ -197,7 +217,7 @@ const sendMessageCommand = () => {
   margin: 0;
   background-color: #65bbca;
   background-image: url(../../assets/background-mobile.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 100vw;

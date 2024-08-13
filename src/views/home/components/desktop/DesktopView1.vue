@@ -64,11 +64,19 @@ const serverWebCommand = () => {
 const discordCommand = () => {
   ElMessage.success('尽情期待')
 }
+const oicqRef = ref()
 const oicqCommand = () => {
-  ElMessage.success('尽情期待')
+  oicqRef.value.open()
 }
+const closeOicqDialog = () => {
+  oicqRef.value.close()
+}
+const weChatRef = ref()
 const weChatCommand = () => {
-  ElMessage.success('尽情期待')
+  weChatRef.value.open()
+}
+const closeWeChatDialog = () => {
+  weChatRef.value.close()
 }
 const telegramCommand = () => {
   ElMessage.success('尽情期待')
@@ -131,6 +139,29 @@ const tempCommand = () => {
 
     </div>
   </el-carousel-item>
+
+  <custom-dialog ref="oicqRef" title="服务器娘提示您: ">
+    <img-content @click="closeOicqDialog">
+      <template #title>
+        <div>腾讯已于2020年关闭QQ临时会话功能</div>
+        <div>您可以扫码联系龙猫哦</div>
+      </template>
+      <template #img>
+        <img src="@/assets/my-qq.jpg">
+      </template>
+    </img-content>
+  </custom-dialog>
+  <custom-dialog ref="weChatRef" title="服务器娘提示您: ">
+    <img-content @click="closeWeChatDialog">
+      <template #title>
+        <div>腾讯已于2020年关闭临时会话功能</div>
+        <div>您可以扫码联系龙猫哦</div>
+      </template>
+      <template #img>
+        <img src="@/assets/my-we-chat.jpg">
+      </template>
+    </img-content>
+  </custom-dialog>
 </template>
 
 <style scoped>
