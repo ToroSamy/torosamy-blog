@@ -49,12 +49,13 @@ const playMusicCommand = () => {
     ElMessage.success('暂停成功')
   }
 }
+const vivoRef = ref()
 const vivo50Command = () => {
-  if (dayIndex === 4) ElMessage.success('vivo50')
-  else {
-    ElMessage.success('今天是星期' + dayOfWeek.value + ' 但也可以vivo50')
-  }
+  if (dayIndex === 4) vivoRef.value.open()
+  else ElMessage.success('今天是星期' + dayOfWeek.value + ' 但也可以vivo50')
+
 }
+
 const gitCommand = () => {
   window.open('https://github.com/ToroSamy', '_blank');
 }
@@ -81,8 +82,9 @@ const closeWeChatDialog = () => {
 const telegramCommand = () => {
   ElMessage.success('尽情期待')
 }
-const moreCommand = () => {
-  ElMessage.success('尽情期待')
+const liveRoomCommand = () => {
+  window.open('https://live.bilibili.com/13130873', '_blank');
+
 }
 const tempCommand = () => {
   ElMessage.success('尽情期待')
@@ -109,13 +111,14 @@ const tempCommand = () => {
         </div>
 
         <div class="footer-box">
-          <img class="little-icon" src="../../assets/little-icon/git.png" @click="gitCommand">
           <img class="little-icon" src="../../assets/little-icon/server-web.png" @click="serverWebCommand">
-          <img class="little-icon" src="../../assets/little-icon/discord.png" @click="discordCommand">
           <img class="little-icon" src="../../assets/little-icon/oicq.png" @click="oicqCommand">
           <img class="little-icon" src="../../assets/little-icon/we-chat.png" @click="weChatCommand">
+          <img class="little-icon" src="../../assets/little-icon/live-room.png" @click="liveRoomCommand">
+          <img class="little-icon" src="../../assets/little-icon/git.png" @click="gitCommand">
           <img class="little-icon" src="../../assets/little-icon/telegram.png" @click="telegramCommand">
-          <img class="little-icon" src="../../assets/little-icon/more.png" @click="moreCommand">
+          <img class="little-icon" src="../../assets/little-icon/discord.png" @click="discordCommand">
+
         </div>
 
         <div class="post-message-box">
@@ -134,11 +137,17 @@ const tempCommand = () => {
         <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
         <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command">
         <img src="../../assets/button/kfc.png" class="little-icon" @click="tempCommand">
-        <img src="../../assets/button/message.png" class="little-icon" @click="tempCommand">
+        <img src="../../assets/button/more.png" class="little-icon" @click="tempCommand">
       </div>
 
     </div>
   </el-carousel-item>
+
+  <custom-dialog ref="vivoRef" :show-close="false"
+    style="width: 45vw; height: auto; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+    <img src="@/assets/vivo50.png" style="width: 43vw; height: auto;"></img>
+  </custom-dialog>
+
 
   <custom-dialog ref="oicqRef" style="width: 18vw;">
     <img-content @click="closeOicqDialog">

@@ -28,11 +28,9 @@ const playMusicCommand = () => {
     ElMessage.success('暂停成功')
   }
 }
+const vivoRef = ref()
 const vivo50Command = () => {
-  if (dayIndex === 4) ElMessage.success('vivo50')
-  else {
-    ElMessage.success('今天是星期' + dayOfWeek.value + ' 但也可以vivo50')
-  }
+  vivoRef.value.open()
 }
 
 const sendMessageCommand = () => {
@@ -92,6 +90,11 @@ const sendMessageCommand = () => {
 
     </div>
   </el-carousel-item>
+  <custom-dialog ref="vivoRef"
+    style="width: auto; height: 36vh; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;"
+    :show-close="false">
+    <img src="@/assets/vivo50.png" style="width: auto; height: 34vh; "></img>
+  </custom-dialog>
   <audio ref="audio" :src="audioSrc" loop></audio>
   <MessageDialog ref="diglog"></MessageDialog>
   <custom-dialog ref="oicqRef" style="width: 65vw; height: auto;">
