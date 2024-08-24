@@ -12,7 +12,7 @@ const audioSrc = '@/../music.mp3';
 const audio = ref(null);
 const isPlaying = ref(false);
 const tempCommand = () => {
-  ElMessage.success('尽情期待')
+  ElMessage.success('敬请期待')
 }
 const playMusicCommand = () => {
   isPlaying.value = !isPlaying.value;
@@ -26,9 +26,7 @@ const playMusicCommand = () => {
 };
 const vivoRef = ref()
 const vivo50Command = () => {
-  if (dayIndex === 4) vivoRef.value.open()
-  else ElMessage.success('今天是星期' + dayOfWeek.value + ' 但也可以vivo50')
-
+  vivoRef.value.open()
 }
 </script>
 
@@ -43,18 +41,13 @@ const vivo50Command = () => {
     <img src="../../assets/button/music.png" :class="{ 'little-icon': true, 'rotate': isPlaying }"
       @click="playMusicCommand">
     <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
-    <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command">
+    <!-- <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command"> -->
     <!-- <img src="../../assets/button/kfc.png" class="little-icon" @click="tempCommand"> -->
     <img src="../../assets/button/more.png" class="little-icon" @click="tempCommand">
   </div>
 </template>
 
 
-<!-- <template>
-  <img src="../../assets/no-design-desktop.jpg"
-    style="width: 100vw; height: 100vh; margin: 0;  filter:blur(1px) brightness(50%) contrast(125%) saturate(200%);">
-  </img>
-</template> -->
 
 <style scoped>
 @keyframes profile {
@@ -67,17 +60,16 @@ const vivo50Command = () => {
   }
 }
 
+
 .icon-group {
+  border: 1px solid #d3d3d3;
   position: absolute;
-  top: 37vh;
-  /* 根据需要调整位置 */
+  top: 50%;
   right: 2vw;
-  /* 根据需要调整位置 */
+  transform: translateY(-50%);
   z-index: 10;
-  /* 确保在 el-carousel 上方 */
   background-color: #678dd4;
   border-radius: 10px;
-  border: 1px solid #d3d3d3;
   padding: 1rem 0rem;
   display: flex;
   flex-direction: column;

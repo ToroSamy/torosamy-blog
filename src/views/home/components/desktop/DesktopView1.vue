@@ -40,7 +40,7 @@ const serverWebCommand = () => {
   window.open('https://server.torosamy.net', '_blank');
 }
 const discordCommand = () => {
-  ElMessage.success('尽情期待')
+  ElMessage.success('敬请期待')
 }
 const oicqRef = ref()
 const oicqCommand = () => {
@@ -57,11 +57,10 @@ const closeWeChatDialog = () => {
   weChatRef.value.close()
 }
 const telegramCommand = () => {
-  ElMessage.success('尽情期待')
+  ElMessage.success('敬请期待')
 }
 const liveRoomCommand = () => {
   window.open('https://live.bilibili.com/13130873', '_blank');
-
 }
 
 </script>
