@@ -1,13 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import DesktopView1 from './DesktopView1.vue';
 import DesktopView2 from './DesktopView2.vue';
+import HomeContainer from './MoreContent.vue';
 const dayIndex = new Date().getDay()
-const dayOfWeek = computed(() => {
-  const days = ['日', '一', '二', '三', '四', '五', '六'];
-  return days[dayIndex];
-});
 const audioSrc = '@/../music.mp3';
 const audio = ref(null);
 const isPlaying = ref(false);
@@ -35,6 +32,7 @@ const vivo50Command = () => {
   <el-carousel style="height: 52.25rem; position: relative;" direction="vertical" :autoplay="false">
     <DesktopView1></DesktopView1>
     <DesktopView2></DesktopView2>
+    <HomeContainer></HomeContainer>
   </el-carousel>
 
   <div class="icon-group">
