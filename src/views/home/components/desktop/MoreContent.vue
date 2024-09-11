@@ -25,8 +25,7 @@
 
 <style scoped>
 .el-carousel__item {
-  background-image: url(../../assets/no-design-desktop.png);
-
+  background-image: url(../../assets/end-background.png);
   background-size: cover;
   width: 100vw;
   height: 100vh;

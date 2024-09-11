@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import DesktopView1 from './DesktopView1.vue';
 import DesktopView2 from './DesktopView2.vue';
+import DesktopView3 from './DesktopView3.vue';
 import HomeContainer from './MoreContent.vue';
 const dayIndex = new Date().getDay()
 const audioSrc = '@/../music.mp3';
@@ -28,10 +29,12 @@ const vivo50Command = () => {
 </script>
 
 <template>
+  <!-- <div class="test"></div> -->
   <audio ref="audio" :src="audioSrc" loop></audio>
   <el-carousel style="height: 52.25rem; position: relative;" direction="vertical" :autoplay="false">
     <DesktopView1></DesktopView1>
     <DesktopView2></DesktopView2>
+    <DesktopView3></DesktopView3>
     <HomeContainer></HomeContainer>
   </el-carousel>
 
@@ -39,8 +42,7 @@ const vivo50Command = () => {
     <img src="../../assets/button/music.png" :class="{ 'little-icon': true, 'rotate': isPlaying }"
       @click="playMusicCommand">
     <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
-    <!-- <img class="little-icon" src="../../assets/button/day.png" v-else @click="vivo50Command"> -->
-    <!-- <img src="../../assets/button/kfc.png" class="little-icon" @click="tempCommand"> -->
+    <img src="../../assets/button/login.png" class="little-icon" @click="tempCommand">
     <img src="../../assets/button/more.png" class="little-icon" @click="tempCommand">
   </div>
 </template>
@@ -48,6 +50,14 @@ const vivo50Command = () => {
 
 
 <style scoped>
+/* .test {
+  background-image: url(../../assets/no-design-desktop.jpg);
+  background-size: 100% 100%;
+  filter: brightness(110%) contrast(100%) saturate(100%);
+  width: 100vw;
+  height: 100vh;
+} */
+
 @keyframes profile {
   from {
     transform: rotate(0deg);

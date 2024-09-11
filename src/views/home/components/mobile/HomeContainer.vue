@@ -43,6 +43,7 @@ const tempCommand = () => {
   <div class="function-box">
     <img :class="{ 'little-icon': true, 'rotate': isRotating }" src="../../assets/button/music.png"
       @click="playMusicCommand">
+    <img class="little-icon" src="../../assets/button/login.png" @click="tempCommand">
     <img class="little-icon" src="../../assets/button/message.png" @click="sendMessageCommand">
     <img class="little-icon" src="../../assets/button/kfc.png" v-if="dayIndex === 4" @click="vivo50Command">
     <img class="little-icon" src="../../assets/button/more.png" @click="tempCommand">
