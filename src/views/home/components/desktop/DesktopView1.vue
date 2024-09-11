@@ -152,6 +152,7 @@ const liveRoomCommand = () => {
   background-color: rgba(90, 86, 86, 0.4);
   border-radius: 10px;
   border: 1px solid #5a5656;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
   padding: 1.5rem 2rem 1rem 2rem;
   /* 上下 左右 上、右、下、左。 */
   display: flex;
