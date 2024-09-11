@@ -33,7 +33,7 @@ const vivo50Command = () => {
   <audio ref="audio" :src="audioSrc" loop></audio>
   <el-carousel style="height: 52.25rem; position: relative;" direction="vertical" :autoplay="false">
     <DesktopView1></DesktopView1>
-    <DesktopView2></DesktopView2>
+    <!-- <DesktopView2></DesktopView2> -->
     <DesktopView3></DesktopView3>
     <HomeContainer></HomeContainer>
   </el-carousel>
