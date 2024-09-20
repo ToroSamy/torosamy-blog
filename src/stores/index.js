@@ -9,5 +9,5 @@ export default pinia
 import { useUserStore } from './modules/user'
 export { useUserStore }
 
-// import { useCountStore } from './modules/counter'
-// export { useCountStore }
+import { useSecondStore } from "./modules/second"
+export { useSecondStore }
