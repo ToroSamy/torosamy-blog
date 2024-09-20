@@ -2,7 +2,7 @@
 
 <template>
   <div class="body">
-    <div style="display: flex; gap: 1vw;">
+    <div style="display: flex; gap: 1vw; margin-left: 5vw;">
       <img src="../../assets/view-page-2/profile.jpg" style="width: 5vw; height: auto;">
 
       <div class="title-box">

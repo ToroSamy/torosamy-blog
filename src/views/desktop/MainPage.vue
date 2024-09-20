@@ -47,7 +47,7 @@ const tempCommand = () => {
     <img src="@/assets/images/button/music.png" :class="{ 'little-icon': true, 'rotate': isPlaying }"
       @click="playMusicCommand">
     <img src="@/assets/images/button/kfc.png" class="little-icon" v-if="dayIndex === 4" @click="kfcCommangd">
-    <img src="@/assets/images/button/login.png" class="little-icon" @click="kfcCommangd">
+    <img src="@/assets/images/button/login.png" class="little-icon" @click="tempCommand">
     <img src="@/assets/images/button/more.png" class="little-icon" @click="tempCommand">
   </div>
 

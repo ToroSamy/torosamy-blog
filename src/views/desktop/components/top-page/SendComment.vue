@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { Promotion } from '@element-plus/icons-vue'
 import { sendUserCommentService, sendUnknownCommentService } from '@/api/comment'
-import { useSecondStore } from '@/stores';
+import { useSecondStore, useUserStore } from '@/stores';
+const userStore = useUserStore()
 const secondStore = useSecondStore()
 onMounted(() => {
   secondStore.checkCountdown() // 页面加载时检查是否需要恢复倒计时
