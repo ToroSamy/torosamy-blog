@@ -45,6 +45,11 @@ const vivo50Command = () => {
     <img src="../../assets/button/login.png" class="little-icon" @click="tempCommand">
     <img src="../../assets/button/more.png" class="little-icon" @click="tempCommand">
   </div>
+
+  <custom-dialog ref="vivoRef" :show-close="false"
+    style="width: 45vw; height: auto; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+    <img src="@/assets/vivo50.png" style="width: 43vw; height: auto;"></img>
+  </custom-dialog>
 </template>
 
 

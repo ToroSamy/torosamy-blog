@@ -258,22 +258,22 @@
   color: white;
 }
 
-/deep/ .el-collapse {
+::v-deep .el-collapse {
   border: 0;
   margin-top: 1vh;
 }
 
-/deep/ .el-collapse-item {
+::v-deep .el-collapse-item {
   border: 1px solid white;
   margin-top: 0.5vh;
 
 }
 
-/deep/ .el-collapse-item__header {
+::v-deep .el-collapse-item__header {
   background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/deep/.el-collapse-item__wrap {
+::v-deep .el-collapse-item__wrap {
   background-color: rgba(255, 255, 255, 0.2) !important;
   margin: 0;
 }
