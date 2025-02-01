@@ -11,3 +11,7 @@ export { useUserStore }
 
 import { useSecondStore } from "./modules/second"
 export { useSecondStore }
+
+
+import { useMarkdownStore } from './modules/markdown'
+export {useMarkdownStore}

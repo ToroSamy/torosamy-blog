@@ -20,7 +20,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:11699',
+        target: 'https://server.torosamy.net:11699',
         ws: false,
         secure: false,
         changeOrigin: true,
