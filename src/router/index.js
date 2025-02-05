@@ -12,19 +12,22 @@ function getDeviceType() {
 }
 const deviceType = getDeviceType()
 
-const Main = defineAsyncComponent(() =>
+const Main = 
   deviceType === 'mobile'
-    ? import('@/views/mobile/MainPage.vue')
-    : import('@/views/desktop/MainPage.vue')
-)
+    ? () => import('@/views/mobile/MainPage.vue')
+    : () => import('@/views/desktop/MainPage.vue')
 
-import MarkdownList from '@/views/desktop/markdown/components/MarkdownList.vue';
 
-const MarkdownContainer = defineAsyncComponent(() =>
+const MarkdownList = 
   deviceType === 'mobile'
-    ? import('@/views/mobile/markdown/MainPage.vue')
-    : import('@/views/desktop/markdown/MainPage.vue')
-)
+    ? () => import('@/views/mobile/markdown/components/MarkdownList.vue')
+    : () => import('@/views/desktop/markdown/components/MarkdownList.vue')
+
+
+const MarkdownContainer = 
+  deviceType === 'mobile'
+    ? () => import('@/views/mobile/markdown/MainPage.vue')
+    : () => import('@/views/desktop/markdown/MainPage.vue')
 
 import MarkdownContent from '@/views/desktop/markdown/components/MarkdownContent.vue';
 

@@ -43,7 +43,7 @@ fetchMarkdown()
   <div class="container" v-html="htmlContent"></div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   background-color: #292929;
   width: 83vw;

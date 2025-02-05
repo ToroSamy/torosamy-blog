@@ -29,6 +29,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 .container {
+  // width: 13rem;
   font-size: 0.8rem;
   display: flex;
   flex-direction: column;

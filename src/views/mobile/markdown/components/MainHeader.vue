@@ -43,7 +43,7 @@ const listCommand = () => {
 <style lang="scss" scoped>
 .el-header {
   width: 100%;
-  background-color: #678dd4;
+  background-color: #1A1A1A;
   font-size: large;
   display: flex;
   align-items: center;
@@ -70,6 +70,7 @@ const listCommand = () => {
 
 .el-icon {
   font-size: 180%;
+  color: #f8faff;
   cursor: pointer;
   /* 鼠标悬停时显示为手形 */
 }

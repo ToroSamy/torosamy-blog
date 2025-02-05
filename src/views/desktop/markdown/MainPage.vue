@@ -18,7 +18,7 @@ import MainHeader from './components/MainHeader.vue';
 
 <style lang="scss" scoped>
 .layout-container {
-  background-color: #f8faff;
+  background-color: #2E2E2E;
   height: 52.5rem;
 }
 

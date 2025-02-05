@@ -26,7 +26,7 @@ const testCommand = () => {
   <el-aside width="200px">
     <img src="@/assets/images/white-logo-react.png" class="logo">
 
-    <el-menu active-text-color="#ffd04b" background-color="#114189" text-color="#fff" style="border: 0; ">
+    <el-menu active-text-color="#ffd04b" background-color="#000000" text-color="#fff" style="border: 0; ">
       <el-menu-item @click="indexCommand" index="1">
         <el-icon>
           <Management />
@@ -91,7 +91,7 @@ const testCommand = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #114189;
+  background-color: black;
 }
 
 .logo {

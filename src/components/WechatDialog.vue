@@ -29,6 +29,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 .container {
+  // width: 13rem;
   color: white;
   background-color: #6ba5cb;
   font-size: 0.8rem;

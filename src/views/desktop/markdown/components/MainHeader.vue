@@ -38,7 +38,7 @@ const playMusicCommand = () => {
 <style lang="scss" scoped>
 .el-header {
   width: 100%;
-  background-color: #678dd4;
+  background-color: #1A1A1A;
   font-size: large;
   display: flex;
   align-items: center;
@@ -65,6 +65,7 @@ const playMusicCommand = () => {
 .el-icon {
   font-size: 180%;
   cursor: pointer;
+  color: #f8faff;
   /* 鼠标悬停时显示为手形 */
 }
 </style>
