@@ -10,5 +10,8 @@
     "docs:dev": "vitepress dev docs --port 11451",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "init": "^0.1.2"
   }
 }

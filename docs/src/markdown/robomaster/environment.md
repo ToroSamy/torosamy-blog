@@ -30,9 +30,6 @@ sudo apt install linux-image-extra-virtual
 set-vmvideo -vmname `<vm_name>` -horizontalresolution:2560  -verticalresolution:1440 -resolutiontype single
 set-vm `<vm_name>` -EnhancedSessionTransportType HVSocket
 ```
-```
-//code
-```
 ## Ubuntu22.04安装eigen3
 - 运行以下指令后eigen3会被安装在标准位置/usr/include/eigen3
 ```bash

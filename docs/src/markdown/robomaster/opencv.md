@@ -1,5 +1,5 @@
 ---
-titleTemplate: Cv Markdown
+titleTemplate: OpenCV Markdown
 ---
 # OpenCV
 
