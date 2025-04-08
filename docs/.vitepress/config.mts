@@ -24,12 +24,29 @@ export default defineConfig({
     ],
     sidebar: {}
   },
+  // vite: {
+  //   plugins: [
+  //     AutoSidebar({
+  //       path: 'docs/src',
+  //       collapsed: true
+  //     })
+  //   ]
+  // },
   vite: {
     plugins: [
       AutoSidebar({
         path: 'docs/src',
-        collapsed: true
+        collapsed: true,
+        beforeCreateSideBarItems: (data) => {
+          const prefaceIndex = data.findIndex(item => item === '前言.md');
+
+          if (prefaceIndex > 0) {
+            const preface = data.splice(prefaceIndex, 1)[0];
+            data.unshift(preface);
+          }
+          return data;
+        }
       })
     ]
-  },
+  }
 })
