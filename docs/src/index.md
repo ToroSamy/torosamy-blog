@@ -11,7 +11,7 @@ hero:
     alt: 图片
   actions:
     - theme: brand
-      text: 开始你的旅程
+      text: Start Readding
       link: /markdown/前言
     - theme: alt
       text: Server Web
