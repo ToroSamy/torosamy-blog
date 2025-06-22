@@ -1,7 +1,7 @@
 ---
 titleTemplate: OpenCV Markdown
 ---
-# 基础配置
+# 基础配置 - Linux
 
 ## 预编译包
 ### 优点: 
@@ -220,7 +220,11 @@ sudo make install
 本示例会安装到/opt/opencv下 当然如果出现了任何错误 仍可以删除/opt/opencv下的所有内容并重试
 - 配置动态库链接规则
 
-打开/etc/ld.so.conf.d 创建xxx.conf (xxx为自定义名字) 输入安装位置的绝对路径 例如
+打开 `/etc/ld.so.conf.d` 创建xxx.conf (xxx为自定义名字) 例如`opencv.conf`
+```bash
+sudo touch /etc/ld.so.conf.d/opencv.conf
+```
+紧接着在 `/etc/ld.so.conf.d` 下的 `opencv.conf` 键入绝对路径 例如
 ```bash
 /opt/opencv/lib
 ```
@@ -230,7 +234,7 @@ sudo ldconfig
 ```
 - 配置其余规则
 
-打开/etc下的bash.bashrc文件 并键入如下**类似内容**
+打开 `/etc/bash.bashrc` 并键入如下**类似内容**
 ```bash
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/opencv/lib/pkgconfig
 export PKG_CONFIG_PATH
@@ -241,7 +245,7 @@ source /etc/bash.bashrc
 ```
 - 修改规则指定cmake链接的opencv版本
 
-打开~/.bashrc文件并键入如下**类似内容** (**请入门者**自行百度~在linux中的含义)
+打开 `~/.bashrc` 并键入如下**类似内容** (**请入门者**自行百度~在linux中的含义)
 ```bash
 export CMAKE_PREFIX_PATH=/opt/opencv:$CMAKE_PREFIX_PATH
 ```
