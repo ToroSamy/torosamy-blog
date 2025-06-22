@@ -5,6 +5,7 @@ export default defineConfig({
   title: "Torosamy`s blog",
   srcDir: './src',
   cleanUrls: false,
+  appearance: 'dark',
   lastUpdated: true,
   description: "",
   themeConfig: { //  注意：配置应该放在 themeConfig 中
