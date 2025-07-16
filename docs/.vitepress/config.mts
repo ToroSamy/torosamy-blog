@@ -65,13 +65,14 @@ export default defineConfig({
           return data
         },
         beforeCreateSideBarItems: (data) => {
-          const prefaceIndex = data.findIndex(item => item === 'index.md');
+          const prefaceIndex = data.findIndex(item => item === 'index.md' || item === '前言.md');
 
           if (prefaceIndex > 0) {
             const preface = data.splice(prefaceIndex, 1)[0];
             data.unshift(preface);
 
           }
+          // console.log('After sorting:', data);
           return data;
         }
       }) as PluginOption

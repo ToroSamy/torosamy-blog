@@ -30,9 +30,8 @@ features:
     icon:
       src: /3.jpg
 
-  - 
-    # link: /markdown/Torosamy Feel So Good.md
-    # linkText: Computer Science
+  - link: /index.md
+    linkText: ""
     details: 只有时间才能揭晓的伟大意义。<br> Only time will tell the magnitude of deeds. <br> <br>正因为知道可以在空中翱翔, <br>才会畏惧展翅的那一刻而忘却疾风<br>Knowing I can soar, I fear the moment I spread my wings, forgetting the fierce wind.
 
 

@@ -227,3 +227,5 @@ mingw32-make -j 8
 mingw32-make install
 ```
 本示例会安装到 `E:/DevTools/opencv/opencv/install` 下 当然如果出现了任何错误 仍可以删除 `E:/DevTools/opencv/opencv/install` 下的所有内容并重试
+
+- 最后在环境变量 `PATH` 中添加`E:/DevTools/opencv/opencv/install/x64/mingw/bin`

@@ -7,11 +7,12 @@
     "vitepress": "^1.6.3"
   },
   "scripts": {
-    "dev": "vitepress dev docs --port 11451",
-    "build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:dev": "vitepress dev docs --port 11451",
+    "docs:build": "vitepress build docs",
+    "docs:preew": "vitepress preview docs"
   },
   "dependencies": {
-    "init": "^0.1.2"
+    "init": "^0.1.2",
+    "vue": "^3.5.17"
   }
 }
