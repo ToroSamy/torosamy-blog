@@ -26,19 +26,19 @@ titleTemplate: Computer Version
 ![alt text](sysdm.cpl.png) 
 
 
-- 点击新建并键入绝对路径 `E:\DevTools\opencv\build\x64\vc16\bin`
+- 点击新建并键入绝对路径 `E:\DevTools\opencv\mvsc\x64\vc16\bin`
 
 ![alt text](image-3.png)
 
-- 在VC++目录的包含目录添加头文件路径 `E:\DevTools\opencv\build\include`、`E:\DevTools\opencv\build\include\opencv2` 
+- 在VC++目录的包含目录添加头文件路径 `E:\DevTools\opencv\mvsc\include`、`E:\DevTools\opencv\mvsc\include\opencv2` 
 
 ![alt text](image.png)
 
-- 在VC++目录的库目录添加链接库路径 `E:\DevTools\opencv\build\x64\vc16\lib` 
+- 在VC++目录的库目录添加链接库路径 `E:\DevTools\opencv\mvsc\x64\vc16\lib` 
 
 ![alt text](image-1.png)
 
-- 最后在链接器的输入的附加依赖项添加`opencv_world480d.lib`, 此文件位于`E:\DevTools\opencv\build\x64\vc16\lib`下 并且根据不同的opencv版本 名字发生变化
+- 最后以此点击链接器- > 输入 -> 附加依赖项, 添加`opencv_world490.lib`, 此文件位于`E:\DevTools\opencv\mvsc\x64\vc16\lib`下 并且根据不同的opencv版本 名字发生变化
 
 ![alt text](image-2.png)
 
