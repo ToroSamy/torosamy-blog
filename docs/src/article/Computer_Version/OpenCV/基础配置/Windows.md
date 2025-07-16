@@ -42,90 +42,89 @@ titleTemplate: Computer Version
 
 ![alt text](image-2.png)
 
-## MinGW
-
-- 在工作目录下clone对应的opencv版本 例如我的在E:\opencv_mingw
+## MinGW 或 Ninja
+- 在工作目录下clone对应的opencv版本
 ```bash
 git clone -b 4.9.0 https://github.com/opencv/opencv.git
 git clone -b 4.9.0 https://github.com/opencv/opencv_contrib.git
 ```
 
-- clone完毕后 在opencv文件夹下创建build和install目录, 并在build目录下执行指令生成对应的makefile文件
-
-其中 `CMAKE_C_COMPILER` 和 `CMAKE_CXX_COMPILER`为 MinGW的 gcc和g++
-
-### CMD
+::: details 点击示例的工作目录
 ```bash
-cmake -G "MinGW Makefiles" ^
-      -D CMAKE_C_COMPILER="E:\DevTools\mingw64\bin\gcc.exe" ^
-      -D CMAKE_CXX_COMPILER="E:\DevTools\mingw64\bin\g++.exe" ^
-      -D CMAKE_INSTALL_PREFIX="..\install" ^
-      -D CMAKE_BUILD_TYPE=Release ^
-      -D INSTALL_C_EXAMPLES=ON ^
-      -D INSTALL_PYTHON_EXAMPLES=ON ^
-      -D OPENCV_GENERATE_PKGCONFIG=ON ^
-      -D BUILD_EXAMPLES=ON ^
-      -D OPENCV_EXTRA_MODULES_PATH="..\..\opencv_contrib\modules" ^
-      -D BUILD_opencv_world=OFF ^
-      -D BUILD_opencv_java=OFF ^
-      -D BUILD_opencv_python=OFF ^
-      ..
+PS E:\DevTools\opencv> tree
+├─mingw
+│  ├─build
+│  └─install
+├─mvsc
+├─ninja
+└─source
+    ├─opencv
+    └─opencv_contrib
 ```
-### PowerShell
-```bash
-cmake -G "MinGW Makefiles" `
-      -D CMAKE_C_COMPILER="E:\DevTools\mingw64\bin\gcc.exe" `
-      -D CMAKE_CXX_COMPILER="E:\DevTools\mingw64\bin\g++.exe" `
-      -D CMAKE_INSTALL_PREFIX="..\install" `
-      -D CMAKE_BUILD_TYPE=Release `
-      -D INSTALL_C_EXAMPLES=ON `
-      -D OPENCV_GENERATE_PKGCONFIG=ON `
-      -D BUILD_EXAMPLES=ON `
-      -D OPENCV_EXTRA_MODULES_PATH="..\..\opencv_contrib\modules" `
-      -D BUILD_opencv_world=OFF `
-      -D BUILD_opencv_java=OFF `
-      -D BUILD_opencv_python=OFF `
-      ..
-```
+:::
 
-**请不要漏了上述指令最后一行的'..' 这是用来帮助定位CmakeLists.txt位置的**
+### MinGW
+- 在 `mingw\build` 下使用 `cmake` 生成对应的 `makefile`
+
+::: details 点击查看 MinGW
+```bash
+cmake -G "MinGW Makefiles" 
+      -D CMAKE_BUILD_TYPE=Release 
+      -D BUILD_SHARED_LIBS=ON 
+      -D BUILD_STATIC_LIBS=ON 
+      -D BUILD_EXAMPLES=OFF 
+      -D BUILD_opencv_world=OFF 
+      -D BUILD_opencv_java=OFF 
+      -D BUILD_opencv_python=OFF 
+      -D CMAKE_INSTALL_PREFIX="E:\DevTools\opencv\mingw\install" 
+      -D OPENCV_EXTRA_MODULES_PATH="E:\DevTools\opencv\source\opencv_contrib\modules"
+      -D CMAKE_C_COMPILER="E:\DevTools\CLion 2024.1.5\bin\mingw\bin\gcc.exe"
+      -D CMAKE_CXX_COMPILER="E:\DevTools\CLion 2024.1.5\bin\mingw\bin\g++.exe"
+      E:\DevTools\opencv\source\opencv
+```
+:::
+
+
+
+**请不要漏了上述指令最后一行的 `E:\DevTools\opencv\source\opencv` 这是用来帮助定位CmakeLists.txt位置的**
+
 - 查看终端提示信息确认生成的makefile文件**是否为所期望**的。
-::: details 点击查看示例的提示信息
+::: details 点击查看 `MinGW` 示例的提示信息
 ```bash
---
 -- General configuration for OpenCV 4.9.0 =====================================
 --   Version control:               4.9.0
 --
 --   Extra modules:
---     Location (extra):            E:/DevTools/opencv/opencv_contrib/modules
+--     Location (extra):            E:/DevTools/opencv/source/opencv_contrib/modules
 --     Version control (extra):     4.9.0
 --
 --   Platform:
---     Timestamp:                   2025-06-23T09:40:56Z
+--     Timestamp:                   2025-07-16T03:37:22Z
 --     Host:                        Windows 10.0.26100 AMD64
---     CMake:                       3.29.0
+--     CMake:                       3.28.6
 --     CMake generator:             MinGW Makefiles
---     CMake build tool:            E:/DevTools/mingw64/bin/mingw32-make.exe
+--     CMake build tool:            E:/DevTools/CLion 2024.1.5/bin/mingw/bin/mingw32-make.exe
 --     Configuration:               Release
 --
 --   CPU/HW features:
 --     Baseline:                    SSE SSE2 SSE3
 --       requested:                 SSE3
---     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
 --       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
 --       SSE4_1 (18 files):         + SSSE3 SSE4_1
 --       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
 --       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
 --       AVX (9 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
 --       AVX2 (38 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (8 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
 --
 --   C/C++:
 --     Built as dynamic libs?:      YES
 --     C++ standard:                11
---     C++ Compiler:                E:/DevTools/mingw64/bin/g++.exe  (ver 8.1.0)
+--     C++ Compiler:                E:/DevTools/CLion 2024.1.5/bin/mingw/bin/g++.exe  (ver 13.1.0)
 --     C++ flags (Release):         -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
 --     C++ flags (Debug):           -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
---     C Compiler:                  E:/DevTools/mingw64/bin/gcc.exe
+--     C Compiler:                  E:/DevTools/CLion 2024.1.5/bin/mingw/bin/gcc.exe
 --     C flags (Release):           -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
 --     C flags (Debug):             -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
 --     Linker flags (Release):      -Wl,--gc-sections
@@ -136,11 +135,11 @@ cmake -G "MinGW Makefiles" `
 --     3rdparty dependencies:
 --
 --   OpenCV modules:
---     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann freetype fuzzy gapi hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot python3 quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
---     Disabled:                    java world
+--     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann fuzzy gapi hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
 --     Disabled by dependency:      -
---     Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv hdf julia matlab ovis python2 sfm viz
---     Applications:                tests perf_tests examples apps
+--     Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv freetype hdf java julia matlab ovis python2 python3 sfm viz
+--     Applications:                tests perf_tests apps
 --     Documentation:               NO
 --     Non-free algorithms:         NO
 --
@@ -154,7 +153,7 @@ cmake -G "MinGW Makefiles" `
 --     ZLib:                        build (ver 1.3)
 --     JPEG:                        build-libjpeg-turbo (ver 2.1.3-62)
 --       SIMD Support Request:      YES
---       SIMD Support:              YES
+--       SIMD Support:              NO
 --     WEBP:                        build (ver encoder: 0x020f)
 --     PNG:                         build (ver 1.6.37)
 --     TIFF:                        build (ver 42 - 4.2.0)
@@ -167,12 +166,12 @@ cmake -G "MinGW Makefiles" `
 --
 --   Video I/O:
 --     DC1394:                      NO
---     FFMPEG:                      NO
---       avcodec:                   NO
---       avformat:                  NO
---       avutil:                    NO
---       swscale:                   NO
---       avresample:                NO
+--     FFMPEG:                      YES (prebuilt binaries)
+--       avcodec:                   YES (58.134.100)
+--       avformat:                  YES (58.76.100)
+--       avutil:                    YES (56.70.100)
+--       swscale:                   YES (5.9.100)
+--       avresample:                YES (4.0.0)
 --     GStreamer:                   NO
 --     DirectShow:                  YES
 --
@@ -188,30 +187,24 @@ cmake -G "MinGW Makefiles" `
 --     Flatbuffers:                 builtin/3rdparty (23.5.9)
 --
 --   OpenCL:                        YES (NVD3D11)
---     Include path:                E:/DevTools/opencv/opencv/3rdparty/include/opencl/1.2
+--     Include path:                E:/DevTools/opencv/source/opencv/3rdparty/include/opencl/1.2
 --     Link libraries:              Dynamic load
 --
---   Python 3:
---     Interpreter:                 E:/DevTools/anaconda3/python.exe (ver 3.11.7)
---     Libraries:                   E:/DevTools/anaconda3/libs/python311.lib (ver 3.11.7)
---     numpy:                       E:/DevTools/anaconda3/Lib/site-packages/numpy/core/include (ver 1.26.4)
---     install path:                E:/DevTools/anaconda3/Lib/site-packages/cv2/python-3.11
---
---   Python (for build):            E:/DevTools/anaconda3/python.exe
+--   Python (for build):            E:/DevTools/miniconda3/python.exe
 --
 --   Java:
 --     ant:                         NO
---     Java:                        YES (ver 21.0.4)
---     JNI:                         E:/DevTools/JDK/21/include E:/DevTools/JDK/21/include/win32 E:/DevTools/JDK/21/include
+--     Java:                        NO
+--     JNI:                         NO
 --     Java wrappers:               NO
 --     Java tests:                  NO
 --
---   Install to:                    E:/DevTools/opencv/opencv/install
+--   Install to:                    E:/DevTools/opencv/mingw/install
 -- -----------------------------------------------------------------
 --
--- Configuring done (579.2s)
--- Generating done (5.5s)
--- Build files have been written to: E:/DevTools/opencv/opencv/build
+-- Configuring done (121.1s)
+-- Generating done (1.8s)
+-- Build files have been written to: E:/DevTools/opencv/mingw/build
 ```
 :::
 
@@ -220,12 +213,174 @@ cmake -G "MinGW Makefiles" `
 ```bash
 mingw32-make -j 8
 ```
-执行到这步为止 **除了下载各种前置依赖以外** 并没有对系统为止进行任何更改 失败时 **你仍可以随意删除文件夹并重试**
+
 
 - 安装到期望的目录
 ```bash
 mingw32-make install
 ```
-本示例会安装到 `E:/DevTools/opencv/opencv/install` 下 当然如果出现了任何错误 仍可以删除 `E:/DevTools/opencv/opencv/install` 下的所有内容并重试
+本示例会安装到 `E:/DevTools/opencv/mingw/install`
 
-- 最后在环境变量 `PATH` 中添加`E:/DevTools/opencv/opencv/install/x64/mingw/bin`
+- 最后在环境变量 `PATH` 中添加`E:\DevTools\opencv\mingw\install\x64\mingw\bin`
+
+### Ninja
+
+- 在 `ninja\build` 下使用 `cmake` 生成对应的 `build.ninja`
+
+::: details 点击查看 Ninja
+```bash
+cmake -G "Ninja" 
+      -D CMAKE_BUILD_TYPE=Release 
+      -D BUILD_SHARED_LIBS=ON 
+      -D BUILD_STATIC_LIBS=ON 
+      -D BUILD_EXAMPLES=OFF 
+      -D BUILD_opencv_world=OFF 
+      -D BUILD_opencv_java=OFF 
+      -D BUILD_opencv_python=OFF 
+      -D CMAKE_INSTALL_PREFIX="E:\DevTools\opencv\mingw\install" 
+      -D OPENCV_EXTRA_MODULES_PATH="E:\DevTools\opencv\source\opencv_contrib\modules"
+      -D CMAKE_C_COMPILER="E:\DevTools\CLion 2024.1.5\bin\mingw\bin\gcc.exe"
+      -D CMAKE_CXX_COMPILER="E:\DevTools\CLion 2024.1.5\bin\mingw\bin\g++.exe"
+      E:\DevTools\opencv\source\opencv
+```
+:::
+
+
+
+**请不要漏了上述指令最后一行的 `E:\DevTools\opencv\source\opencv` 这是用来帮助定位CmakeLists.txt位置的**
+
+- 查看终端提示信息确认生成的 `build.ninja` 文件**是否为所期望**的。
+::: details 点击查看 `Ninja` 示例的提示信息
+```bash
+--
+-- General configuration for OpenCV 4.9.0 =====================================
+--   Version control:               4.9.0
+--
+--   Extra modules:
+--     Location (extra):            E:/DevTools/opencv/source/opencv_contrib/modules
+--     Version control (extra):     4.9.0
+--
+--   Platform:
+--     Timestamp:                   2025-07-16T04:04:54Z
+--     Host:                        Windows 10.0.26100 AMD64
+--     CMake:                       3.28.6
+--     CMake generator:             Ninja
+--     CMake build tool:            E:/DevTools/CLion 2024.1.5/bin/ninja/win/x64/ninja.exe
+--     Configuration:               Release
+--
+--   CPU/HW features:
+--     Baseline:                    SSE SSE2 SSE3
+--       requested:                 SSE3
+--     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+--       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+--       SSE4_1 (18 files):         + SSSE3 SSE4_1
+--       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+--       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+--       AVX (9 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+--       AVX2 (38 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+--       AVX512_SKX (8 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+--
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ standard:                11
+--     C++ Compiler:                E:/DevTools/CLion 2024.1.5/bin/mingw/bin/g++.exe  (ver 13.1.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  E:/DevTools/CLion 2024.1.5/bin/mingw/bin/gcc.exe
+--     C flags (Release):           -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections
+--     Linker flags (Debug):        -Wl,--gc-sections
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          pthread
+--     3rdparty dependencies:
+--
+--   OpenCV modules:
+--     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann fuzzy gapi hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv freetype hdf java julia matlab ovis python2 python3 sfm viz
+--     Applications:                tests perf_tests apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+--
+--   Windows RT support:            NO
+--
+--   GUI:                           WIN32UI
+--     Win32 UI:                    YES
+--     VTK support:                 NO
+--
+--   Media I/O:
+--     ZLib:                        build (ver 1.3)
+--     JPEG:                        build-libjpeg-turbo (ver 2.1.3-62)
+--       SIMD Support Request:      YES
+--       SIMD Support:              NO
+--     WEBP:                        build (ver encoder: 0x020f)
+--     PNG:                         build (ver 1.6.37)
+--     TIFF:                        build (ver 42 - 4.2.0)
+--     JPEG 2000:                   build (ver 2.5.0)
+--     OpenEXR:                     build (ver 2.3.0)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+--     PFM:                         YES
+--
+--   Video I/O:
+--     DC1394:                      NO
+--     FFMPEG:                      YES (prebuilt binaries)
+--       avcodec:                   YES (58.134.100)
+--       avformat:                  YES (58.76.100)
+--       avutil:                    YES (56.70.100)
+--       swscale:                   YES (5.9.100)
+--       avresample:                YES (4.0.0)
+--     GStreamer:                   NO
+--     DirectShow:                  YES
+--
+--   Parallel framework:            pthreads
+--
+--   Trace:                         YES (built-in)
+--
+--   Other third-party libraries:
+--     Lapack:                      NO
+--     Eigen:                       NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.19.1)
+--     Flatbuffers:                 builtin/3rdparty (23.5.9)
+--
+--   OpenCL:                        YES (NVD3D11)
+--     Include path:                E:/DevTools/opencv/source/opencv/3rdparty/include/opencl/1.2
+--     Link libraries:              Dynamic load
+--
+--   Python (for build):            E:/DevTools/miniconda3/python.exe
+--
+--   Java:
+--     ant:                         NO
+--     Java:                        NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+--
+--   Install to:                    E:/DevTools/opencv/ninja/install
+-- -----------------------------------------------------------------
+--
+-- Configuring done (121.0s)
+-- Generating done (1.3s)
+-- Build files have been written to: E:/DevTools/opencv/ninja/build
+```
+:::
+
+
+- 执行build.ninja文件 编译源代码
+```bash
+ninja
+```
+
+
+- 安装到期望的目录
+```bash
+ninja install
+```
+本示例会安装到 `E:/DevTools/opencv/ninja/install`
+
+- 最后在环境变量 `PATH` 中添加`E:\DevTools\opencv\ninja\install\x64\mingw\bin`
