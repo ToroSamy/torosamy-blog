@@ -8,6 +8,8 @@ titleTemplate: SSH
 SSH（Secure Shell）是一种 **网络安全协议**, 主要用于在不安全的网络上实现安全的远程登录与数据传输。  
 它的核心目标是：**身份认证、数据加密、完整性保护**。相比早期的 Telnet、rsh 等明文传输方式, SSH 通过**引入密码学**算法确保了通信过程不会被窃听或篡改。
 
+---
+
 ## OpenSSH
 
 SSH 是一个协议标准, 而最常见的实现就是 **OpenSSH**。 
@@ -15,6 +17,36 @@ SSH 是一个协议标准, 而最常见的实现就是 **OpenSSH**。
 ### 安装方式
 - Linux: 需用包管理器(`apt`, `dnf`, `yum`, `pacman`, `zypper`)手动安装 `OpenSSH` 的 `Server` 和 `Client`
 - Windows: 自带 `OpenSSH`
+
+---
+
+
+### 获取密钥对
+#### Linux
+假设要生成到 `/home/workspace/resource/` 下
+- RSA 2048 位
+```bash
+ssh-keygen -t rsa -b 2048 -f /home/workspace/resource/rsa_id -C "your_email@example.com"
+```
+- Ed25519
+```bash
+ssh-keygen -t ed25519 -f /home/workspace/resource/ed25519_id -C "your_email@example.com"
+```
+
+---
+
+#### Windows
+
+假设要生成到 `E:\DevTools\ssh\` 下
+- RSA 2048 位
+```powershell
+ssh-keygen -t rsa -b 2048 -f E:\DevTools\ssh\rsa_id -C "your_email@example.com"
+```
+- Ed25519
+```powershell
+ssh-keygen -t ed25519 -f E:\DevTools\ssh\ed25519_id -C "your_email@example.com"
+```
+---
 
 ## OpenSSH Client
 OpenSSH Client(ssh)运行在用户本地电脑上的 SSH 客户端, 用于发起连接（例如 `ssh user@host`）。
@@ -87,6 +119,8 @@ icacls "E:\DevTools\ssh\private" /grant:r %USERNAME%:F
 - 要么用桌面会话的“钥匙串管理器”（GNOME Keyring、KWallet）在登录桌面时自动启动 ssh-agent
 
 
+---
+
 
 ## OpenSSH Server
 OpenSSH Server(sshd)运行在远程主机上的守护进程, 负责接收客户端连接请求, 并通过密钥认证/密码认证等方式确认用户身份。
@@ -104,6 +138,8 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType Automatic
 ```
 
+
+---
 
 
 ## 工作流程
@@ -144,6 +180,8 @@ Host github.com
 - 服务器用 `authorized_keys` 里的 **用户公钥** 验证这个签名
 - 验证通过则说明客户端确实拥有对应的私钥, 允许登录
 
+
+---
 
 
 ## 用户级目录
