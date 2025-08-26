@@ -14,21 +14,21 @@ hero:
       link: /article/index.md
     - theme: alt
       text: Donate me
-      link: https://afdian.com/a/torosamy
+      # link: https://afdian.com/a/torosamy
 
 features:
 
   - link: /torosamy.md
     details: 我知道万事皆有因, 但是去™的生活。<br>It all happens for a reason,but what the f*
     linkText: About Torosamy
-    icon:
-      src: /2.jpg
+    # icon:
+    #   src: /4.png
       
-  - link: https://server.torosamy.net
+  - link: https://www.bitlie.net
     linkText: Server Web
     details: 我们唯一知晓的是世界运转如常。<br>The world goes round no matter, well that's the only truth we know.
-    icon:
-      src: /3.jpg
+    # icon:
+    #   src: /5.png
 
   - link: /index.md
     linkText: ""

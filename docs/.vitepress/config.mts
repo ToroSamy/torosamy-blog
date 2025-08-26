@@ -7,7 +7,7 @@ export default defineConfig({
   cleanUrls: false,
   appearance: 'dark',
   lastUpdated: true,
-  description: "",
+  description: "Welcome to Torosamy`s blog",
   themeConfig: {
     search: {
       provider: 'local'
