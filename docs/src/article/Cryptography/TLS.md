@@ -283,9 +283,6 @@ HKDF (HMAC-based Key Derivation Function) **是一个**基于 HMAC 的密钥派�
 
 在每个阶段，双方都会**根据 `ServerHello` 选定的密码套件里规定的 `hash`** 算法把到目前为止的所有握手消息做一次哈希。
 
-- 当要派生 握手密钥时，transcript_hash 就是 ClientHello + ServerHello 的 hash。
-
-- 当要派生 应用密钥时，transcript_hash 就包括 ClientHello、ServerHello、Certificate、Finished 等所有握手消息的 hash。
 
 ![alt text](transcript_hash.png)
 
