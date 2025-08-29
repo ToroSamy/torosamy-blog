@@ -55,7 +55,7 @@ OpenSSH Client(ssh)运行在用户本地电脑上的 SSH 客户端, 用于发起
 随装随用, 不需要后台服务
 
 ### ssh-agent
-`ssh-agent` 是一个密钥管理工具, 是 `OpenSSH Client` 的一部分。是一个“钥匙串服务”。
+`ssh-agent` 是一个密钥管理工具, 是 `OpenSSH Client` 的一部分。是一个`钥匙串服务`。
 
 #### 作用
 在内存里帮你保存已经解锁的私钥, 这样你在同一次会话里不用每次都输入 `passphrase` 。
@@ -79,7 +79,7 @@ ssh-add -l                  # 查看已加载的密钥
 # 期望看到：C:\Windows\System32\OpenSSH\ssh-add.exe / ssh.exe
 ```
 
-- 把服务设为“自动”并启动
+- 把服务设为`自动`并启动
 ```powershell
 Set-Service -Name ssh-agent -StartupType Automatic
 Start-Service -Name ssh-agent
@@ -95,7 +95,7 @@ Get-Service -Name ssh-agent
 # 去掉继承的权限
 icacls "E:\DevTools\ssh\private" /inheritance:r
 
-# 删除“已验证用户”的访问
+# 删除`已验证用户`的访问
 icacls "E:\DevTools\ssh\private" /remove "NT AUTHORITY\Authenticated Users"
 
 # 只允许当前登录用户完全控制（把 <YourUserName> 换成你自己的 Windows 登录名）
@@ -116,7 +116,7 @@ icacls "E:\DevTools\ssh\private" /grant:r %USERNAME%:F
 
 - 要么自己 `eval $(ssh-agent -s)`
 - 要么写进 `bashrc / .zshrc` 
-- 要么用桌面会话的“钥匙串管理器”（GNOME Keyring、KWallet）在登录桌面时自动启动 ssh-agent
+- 要么用桌面会话的`钥匙串管理器`（GNOME Keyring、KWallet）在登录桌面时自动启动 ssh-agent
 
 
 ---
@@ -165,7 +165,7 @@ Set-Service -Name sshd -StartupType Automatic
 #### 验证客户端身份（防止陌生人登录服务器）
 - 服务器检查登录用户的 `authorized_keys` 文件, 找到匹配的用户公钥
 - 服务器生成一个随机挑战 `challenge_user`
-- 服务器用这个挑战**要求**客户端“用对应的 **用户私钥** 对它签名
+- 服务器用这个挑战**要求**客户端`用对应的 **用户私钥** 对它签名
 - 如果客户端 `config文件` 里没有配置连接该服务端用哪把**用户私钥**, 则默认使用 `~/.ssh/` 下的 **用户私钥** 对挑战签名, 并把签名发回服务器
 - 例如使用 `config文件` 对 `github.com` 进行配置
 ```

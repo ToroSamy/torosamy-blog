@@ -109,7 +109,7 @@ HTTP 提供了一系列方法，让客户端可以和服务器"沟通"。
 
 ## HTTPS
 
-HTTP是明文传输，**HTTPS** 即`HTTP over TLS`, HTTP 流量通过 **[TLS加密](../Cryptography/TLS)** 加密传输
+HTTP是明文传输，**HTTPS** 即`HTTP over TLS`, HTTP 流量通过 **[TLS加密](../../Cryptography/TLS)** 加密传输
 
 - **安全性**：防止数据被窃听
 - **完整性**：防止数据被篡改
