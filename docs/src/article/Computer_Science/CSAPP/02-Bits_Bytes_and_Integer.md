@@ -2,7 +2,7 @@
 titleTemplate: 深入理解计算机系统
 ---
 
-# 比特, 字节和整型
+# Bits, Bytes, and Integer
 
 
 ## 比特(位)
@@ -55,7 +55,7 @@ titleTemplate: 深入理解计算机系统
 - 将参数视为位向量
 - 按位应用于参数
 
-![alt text](./bit_byte_integer/bool1.png)
+![alt text](./02-Bits_Bytes_and_Integer/bool1.png)
 
 ### 表示
 
@@ -85,11 +85,11 @@ long, int, short, char, unsigned
 #### 左移 x << y
 
 把位向量x往左边移动y个位置, 丢弃左边多余的部分, 在右边填充0
-![alt text](./bit_byte_integer/左移.png)
+![alt text](./02-Bits_Bytes_and_Integer/左移.png)
 
 #### 右移 x >> y
 把位向量x往右边移动y个位置, 丢弃右边多余的部分。逻辑移位往左边填充0, 算数移位往左边填充最高有效位
-![alt text](./bit_byte_integer/右移.png)
+![alt text](./02-Bits_Bytes_and_Integer/右移.png)
 
 #### 未定义行为
 
@@ -105,9 +105,9 @@ long, int, short, char, unsigned
 
 #### 公式
 - 无符号整型(Unsigned)
-![alt text](./bit_byte_integer/B2U.png)
+![alt text](./02-Bits_Bytes_and_Integer/B2U.png)
 - 二进制补码(Two’s complement)
-![alt text](./bit_byte_integer/B2T.png)
+![alt text](./02-Bits_Bytes_and_Integer/B2T.png)
 
 ---
 
@@ -133,23 +133,23 @@ unsigned short y = -15213;
 ### 数字范围
 
 #### 公式
-![alt text](./bit_byte_integer/整型数字范围_公式.png)
+![alt text](./02-Bits_Bytes_and_Integer/整型数字范围_公式.png)
 
 #### 示例
-![alt text](./bit_byte_integer/整型数字范围_示例.png)
+![alt text](./02-Bits_Bytes_and_Integer/整型数字范围_示例.png)
 
 #### 观察
-![alt text](./bit_byte_integer/整型数字范围_观察.png)
+![alt text](./02-Bits_Bytes_and_Integer/整型数字范围_观察.png)
 
 ---
 
 ### 整型转换
 
-![alt text](./bit_byte_integer/整型转换.png)
+![alt text](./02-Bits_Bytes_and_Integer/整型转换.png)
 
 如果单个表达式中存在有无符号数和有符号数的混用, 带符号值隐式转换为无符号值
 
-![alt text](./bit_byte_integer/整型转换_示例.png)
+![alt text](./02-Bits_Bytes_and_Integer/整型转换_示例.png)
 
 ---
 
@@ -161,21 +161,21 @@ unsigned short y = -15213;
 
 ### 无符号加法
 对于W位数, 只需按位相加, 最终结果多于W位的舍弃
-![alt text](./bit_byte_integer/UAdd.png)
+![alt text](./02-Bits_Bytes_and_Integer/UAdd.png)
 
 ---
 
 ### 二进制补码加法
 对于W位数, 按位相加, 最终结果多于W位的舍弃, 剩余位视为二进制补码整数
 
-![alt text](./bit_byte_integer/TAdd.png)
+![alt text](./02-Bits_Bytes_and_Integer/TAdd.png)
 
 
 以 w = 4 位举例, TMax = 7, TMin = -8, 那么则有以下示例
 
-![alt text](./bit_byte_integer/TAdd-Overflow-Example.png)
+![alt text](./02-Bits_Bytes_and_Integer/TAdd-Overflow-Example.png)
 
-![alt text](./bit_byte_integer/TAdd-Overflow.png)
+![alt text](./02-Bits_Bytes_and_Integer/TAdd-Overflow.png)
 
 ---
 
@@ -250,7 +250,7 @@ for (i = CNT; i-DELTA >= 0; i-= DELTA) {
 
 有2种基本的存储方式: 小端序、大端序
 
-![alt text](./bit_byte_integer/字节序.png)
+![alt text](./02-Bits_Bytes_and_Integer/字节序.png)
 
 
 ### 小端序

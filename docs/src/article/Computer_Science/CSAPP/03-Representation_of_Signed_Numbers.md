@@ -2,7 +2,8 @@
 titleTemplate: 深入理解计算机系统
 ---
 
-# 计算机三码
+# Representation of Signed Numbers
+
 最早的计算机ENIAC（埃尼阿克）采用十进制而不是二进制
 二进制是由冯诺依曼体系结构规定的
 
@@ -82,7 +83,7 @@ titleTemplate: 深入理解计算机系统
 ### 计算真值
 
 例如: 补码1001真值 = -2^3 + 2^0 = -8 + 1 = -7
-![alt text](./bit_byte_integer/B2T.png)
+![alt text](./03-Representation_of_Signed_Numbers/B2T.png)
 
 ---
 

@@ -2,7 +2,7 @@
 titleTemplate: 深入理解计算机系统
 ---
 
-# 浮点数
+# Floating Point
 
 ## 移码表示
 
@@ -42,10 +42,9 @@ IEEE 标准 754建立于1985年，作为浮点运算的统一标准, 由所有�
 
 
 `MSB` 是符号位 `s`, `exp` 字段编码为 `E` (但不等于 E), `frac` 字段编码为 `M` (但不等于 M)
-![alt text](./float/浮点精度表示.png)
+![alt text](./04-Floating_Point/浮点精度表示.png)
 
 ---
-
 
 
 ### 表示方式
@@ -68,7 +67,7 @@ IEEE 标准 754建立于1985年，作为浮点运算的统一标准, 由所有�
 - 当 frac=00000 时最小 (M = 1.0)
 - 当 frac=11111 时最大 (M = 2.0 – ε)
 
-![alt text](./float/规格化.png)
+![alt text](./04-Floating_Point/规格化.png)
 
 ---
 
@@ -91,7 +90,7 @@ IEEE 标准 754建立于1985年，作为浮点运算的统一标准, 由所有�
 当 `frac = 000…0`时, 可能表示正无穷(−1.0/−0.0), 负无穷(1.0/−0.0)
 当 `frac ≠ 000…0`时, 表示不能确定数字值的情况, 非数字(NaN)
 
-![alt text](./float/shuzhou.png)
+![alt text](./04-Floating_Point/shuzhou.png)
 
 
 ## 四舍五入
@@ -121,13 +120,13 @@ IEEE 标准 754建立于1985年，作为浮点运算的统一标准, 由所有�
 ---
 
 ## 乘法
-![alt text](./float/乘法.png)
+![alt text](./04-Floating_Point/乘法.png)
 符号位 s = s1 ^ s2, 有效数字 M = M1 * M2, 指数位 E = E1 + E2
 
 如果 M ≥ 2，将 M 右移，增加 E。如果 E 超出范围，则溢出 。为了适合 frac  精度舍入M 
 
 ## 加法
-![alt text](./float/加法.png)
+![alt text](./04-Floating_Point/加法.png)
 
 对于符号位 s 和有效数字 M, 取有符号数对齐和相加的结果。取较大的指数E
 
