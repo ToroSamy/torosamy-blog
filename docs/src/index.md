@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: "Torosamy`s blog"
-  text: "the time you enjoy wasting is not wasted time"
+  text: "The time you enjoy wasting is not wasted time."
   tagline: 如果能在浪费时间中获得乐趣, 那就不是浪费时间。 
   image:
     src: /title.png
